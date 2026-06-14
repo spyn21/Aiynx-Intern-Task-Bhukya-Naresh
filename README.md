@@ -2,14 +2,31 @@
 
 A responsive **App Graph Builder** UI built as a frontend intern take-home task. Visualize service dependency graphs with ReactFlow, inspect node configuration, and switch between apps with mocked API data.
 
-## Setup
+## Live Demo
+
+**https://spyn21.github.io/Aiynx-Intern-Task-Bhukya-Naresh/**
+
+The live demo is deployed automatically from the `master` branch via GitHub Actions.
+
+## Setup (for reviewers)
+
+**Requirements:** Node.js 20 or later, npm 10+
 
 ```bash
+git clone https://github.com/spyn21/Aiynx-Intern-Task-Bhukya-Naresh.git
+cd Aiynx-Intern-Task-Bhukya-Naresh
 npm install
 npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173).
+
+If you prefer a clean install from the lock file:
+
+```bash
+npm ci
+npm run dev
+```
 
 ### Scripts
 
