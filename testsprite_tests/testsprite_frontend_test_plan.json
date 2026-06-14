@@ -1,0 +1,742 @@
+[
+  {
+    "id": "TC001",
+    "title": "Load and select an application",
+    "description": "Verifies that a user can load the applications list, choose a mock application, and see its dependency graph render.",
+    "category": "App Selection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected application is highlighted"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the service dependency graph is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Load a mock app graph",
+    "description": "A user can open the app, choose a mock application, and see its service dependency graph render successfully.",
+    "category": "Simulate API Error",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to finish loading"
+      },
+      {
+        "type": "action",
+        "description": "Select a mock application from the applications list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the service dependency graph is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify nodes and connections are visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "View and interact with the service graph",
+    "description": "Verifies that a user can inspect the rendered dependency graph, pan and zoom it, and fit it back to the viewport.",
+    "category": "Graph Canvas",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify graph nodes and edges are displayed"
+      },
+      {
+        "type": "action",
+        "description": "Pan the graph canvas"
+      },
+      {
+        "type": "action",
+        "description": "Zoom the graph canvas"
+      },
+      {
+        "type": "action",
+        "description": "Fit the graph to the viewport"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the graph remains visible in the viewport"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Recover the applications list after simulated errors",
+    "description": "A tester can turn on simulated API errors, see the applications list fail, then turn errors off and recover normal loading.",
+    "category": "Simulate API Error",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Enable simulated error mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an error state is visible in the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Disable simulated error mode"
+      },
+      {
+        "type": "action",
+        "description": "Retry loading the applications list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Recover the graph after simulated errors",
+    "description": "A tester can load an app, turn on simulated API errors for the graph, and then recover the graph after turning errors off and retrying.",
+    "category": "Simulate API Error",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to finish loading"
+      },
+      {
+        "type": "action",
+        "description": "Select a mock application from the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Enable simulated error mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an error state is visible in the graph area"
+      },
+      {
+        "type": "action",
+        "description": "Disable simulated error mode"
+      },
+      {
+        "type": "action",
+        "description": "Retry loading the graph"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the service dependency graph is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Recover apps list after loading error",
+    "description": "Verifies that a user can enter the simulated apps error state and recover by retrying until the applications list loads.",
+    "category": "App Selection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Enable the simulated API error mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an applications error state is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Disable the simulated API error mode"
+      },
+      {
+        "type": "action",
+        "description": "Retry loading the applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Recover graph after loading error",
+    "description": "Verifies that a user can enter the simulated graph error state and recover by retrying until the graph renders.",
+    "category": "Graph Canvas",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Enable the simulated API error mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a graph error state is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Disable the simulated API error mode"
+      },
+      {
+        "type": "action",
+        "description": "Retry loading the graph"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the graph is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Select and clear a service node",
+    "description": "Verifies that a user can select a service node on the graph and clear that selection by clicking the canvas background.",
+    "category": "Graph Canvas",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Click a service node on the graph"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the service node is selected"
+      },
+      {
+        "type": "action",
+        "description": "Click the graph canvas background"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the node selection is cleared"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Open the node inspector and switch tabs",
+    "description": "Verifies that selecting a service node opens the inspector and that the user can switch between Config and Runtime views.",
+    "category": "Node Inspector",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Click a service node on the graph"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the node inspector is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Runtime tab"
+      },
+      {
+        "type": "action",
+        "description": "Switch back to the Config tab"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the inspector shows the selected node details"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Use graph controls to inspect the canvas",
+    "description": "A user can zoom, fit, and pan the dependency graph to inspect the service layout.",
+    "category": "Simulate API Error",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to finish loading"
+      },
+      {
+        "type": "action",
+        "description": "Select a mock application from the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Use the graph zoom controls"
+      },
+      {
+        "type": "action",
+        "description": "Use the fit-to-view control"
+      },
+      {
+        "type": "action",
+        "description": "Pan the graph canvas"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the graph remains visible and positioned within the viewport"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Switch to another application",
+    "description": "Verifies that selecting a different mock application updates the selection and refreshes the graph for the new app.",
+    "category": "App Selection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Select a different application from the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selection updates in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the graph updates for the newly selected application"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Edit node details in the inspector",
+    "description": "Verifies that a user can update a node name and description in the inspector and see those edits reflected locally.",
+    "category": "Node Inspector",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Click a service node on the graph"
+      },
+      {
+        "type": "action",
+        "description": "Edit the node name"
+      },
+      {
+        "type": "action",
+        "description": "Edit the node description"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the edited node details are displayed in the inspector"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Open the node inspector from a selected service",
+    "description": "A user can select a service node and open the inspector to review its details.",
+    "category": "Simulate API Error",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to finish loading"
+      },
+      {
+        "type": "action",
+        "description": "Select a mock application from the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Select a service node in the graph"
+      },
+      {
+        "type": "action",
+        "description": "Open the node inspector"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the node inspector is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify selected node details are visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Keep load controls in sync",
+    "description": "Verifies that adjusting the load slider or numeric input keeps both controls synchronized and updates the node information shown in the inspector.",
+    "category": "Node Inspector",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Click a service node on the graph"
+      },
+      {
+        "type": "action",
+        "description": "Adjust the load percentage using the slider"
+      },
+      {
+        "type": "action",
+        "description": "Enter a matching numeric load value"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the load controls remain synchronized"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the updated load value is reflected in the inspector"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Open the mobile drawer and inspect a node",
+    "description": "A mobile user can open the slide-over panel, select an app and node, and see the inspector appear in the drawer.",
+    "category": "Mobile Panel",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Set the viewport to a small screen size"
+      },
+      {
+        "type": "action",
+        "description": "Open the mobile panel"
+      },
+      {
+        "type": "action",
+        "description": "Select a mock application from the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Select a service node in the graph"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the slide-over panel is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the node inspector is displayed in the panel"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Switch inspector tabs for runtime details",
+    "description": "A user can open the inspector and switch between configuration and runtime information for the selected node.",
+    "category": "Simulate API Error",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to finish loading"
+      },
+      {
+        "type": "action",
+        "description": "Select a mock application from the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Select a service node in the graph"
+      },
+      {
+        "type": "action",
+        "description": "Open the node inspector"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the runtime tab in the inspector"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify runtime information is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Switch back to the configuration tab in the inspector"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify configuration fields are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC017",
+    "title": "Auto-open the mobile panel when selecting a node",
+    "description": "A mobile user can select a node on the canvas and have the panel open automatically to show the node details.",
+    "category": "Mobile Panel",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Set the viewport to a small screen size"
+      },
+      {
+        "type": "action",
+        "description": "Select a mock application from the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Select a service node in the graph"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the mobile panel opens automatically"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected node details are visible in the panel"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC018",
+    "title": "View runtime status and metrics for a node",
+    "description": "Verifies that a selected service node shows its status pill and runtime metrics in the inspector.",
+    "category": "Node Inspector",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Click a service node on the graph"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Runtime tab"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the node status is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify runtime metrics are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC019",
+    "title": "Switch apps and refresh the graph",
+    "description": "A user can switch between mock applications and see the service graph update to match the newly selected app.",
+    "category": "Simulate API Error",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to finish loading"
+      },
+      {
+        "type": "action",
+        "description": "Select one mock application from the applications list"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the graph to finish loading"
+      },
+      {
+        "type": "action",
+        "description": "Select a different mock application from the applications list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the service dependency graph refreshes for the newly selected app"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected app changes in the applications list"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC020",
+    "title": "Reset local inspector edits when switching apps",
+    "description": "Verifies that edits made in the inspector are local to the current app and reset after switching to another app and back.",
+    "category": "Node Inspector",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the applications list to load"
+      },
+      {
+        "type": "action",
+        "description": "Select an application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Click a service node on the graph"
+      },
+      {
+        "type": "action",
+        "description": "Edit the node name"
+      },
+      {
+        "type": "action",
+        "description": "Select a different application from the list"
+      },
+      {
+        "type": "action",
+        "description": "Select the original application from the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the original node details are restored"
+      }
+    ],
+    "priority": "Medium"
+  }
+]

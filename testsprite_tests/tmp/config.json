@@ -1,0 +1,17 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5173",
+  "executionArgs": {
+    "projectName": "Assessment",
+    "projectPath": "c:\\Users\\NARESH\\OneDrive\\Desktop\\vscode\\Assessment",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user--yFffIYTLlg8n70YPb2RkWQY1eXTHzpKGBzVN5jl14dbJesgRUp1hQos4tr9yYVlTqXlINUfQqaKiJGl6bzjbvO_JsNTZUSXeQuIOqgusisDpGB7EQeDmAfn1wW5WGgZeiA"
+    }
+  },
+  "serverPort": 58605
+}

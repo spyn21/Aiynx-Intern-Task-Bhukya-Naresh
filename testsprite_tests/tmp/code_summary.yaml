@@ -1,0 +1,111 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - React 19
+  - Vite 8
+  - ReactFlow (@xyflow/react)
+  - TanStack Query
+  - Zustand
+  - MSW
+  - Tailwind CSS v4
+  - Radix UI
+routes:
+  - path: /
+    file: src/App.tsx
+    auth_required: false
+    description: Single-page App Graph Builder with service dependency visualization
+features:
+  - name: App Selection
+    description: Load and switch between mock applications from the right panel apps list
+    files:
+      - src/components/apps/AppSelector.tsx
+      - src/hooks/useApps.ts
+      - src/mocks/handlers.ts
+    entry_route: /
+    user_interactions:
+      - View loading skeletons while apps load
+      - Click an app in the Apps list to select it
+      - See the selected app highlighted in the list
+      - Click Retry on error state to refetch apps
+    api_calls:
+      - method: GET
+        endpoint: /api/apps
+    auth_required: false
+  - name: Graph Canvas
+    description: Visualize service dependency graphs with ReactFlow nodes and edges
+    files:
+      - src/components/canvas/FlowCanvas.tsx
+      - src/components/canvas/ServiceNode.tsx
+      - src/hooks/useGraph.ts
+      - src/mocks/handlers.ts
+    entry_route: /
+    user_interactions:
+      - View graph nodes and edges after selecting an app
+      - Click a node to select it and open the inspector
+      - Click canvas background to deselect node
+      - Pan and zoom the graph using controls
+      - Use Fit button in top bar to fit graph to view
+      - Click Retry on graph load error
+    api_calls:
+      - method: GET
+        endpoint: /api/apps/:appId/graph
+    auth_required: false
+  - name: Node Inspector
+    description: Inspect and edit selected service node configuration and runtime info
+    files:
+      - src/components/inspector/NodeInspector.tsx
+      - src/components/inspector/SyncedLoadControl.tsx
+      - src/components/inspector/StatusPill.tsx
+    entry_route: /
+    user_interactions:
+      - Select a node on canvas to view inspector
+      - Switch between Config and Runtime tabs
+      - Edit node name and description fields
+      - Adjust load percentage via slider or numeric input
+      - View status pill and runtime metrics
+    api_calls: []
+    auth_required: false
+  - name: Simulate API Error
+    description: Toggle mock API error simulation from the top bar
+    files:
+      - src/components/layout/TopBar.tsx
+      - src/mocks/handlers.ts
+      - src/store/useAppStore.ts
+    entry_route: /
+    user_interactions:
+      - Click Simulate Error button to enable error mode
+      - See error states in apps list and graph canvas
+      - Click Errors On button to disable error simulation
+    api_calls:
+      - method: GET
+        endpoint: /api/apps
+      - method: GET
+        endpoint: /api/apps/:appId/graph
+    auth_required: false
+  - name: Mobile Panel
+    description: Responsive slide-over panel for apps and inspector on smaller screens
+    files:
+      - src/components/layout/AppLayout.tsx
+      - src/components/ui/sheet.tsx
+      - src/store/useAppStore.ts
+    entry_route: /
+    user_interactions:
+      - Click panel toggle button on mobile viewport
+      - Open slide-over drawer with apps list and inspector
+      - Select node on mobile to auto-open panel
+    api_calls: []
+    auth_required: false
+known_limitations:
+  - issue: Inspector edits are lost when switching apps or refetching the graph
+    location: src/components/inspector/NodeInspector.tsx
+    impact: Local node data changes are not persisted to the mock API
+  - issue: Left rail navigation icons are non-functional placeholders
+    location: src/components/layout/LeftRail.tsx
+    impact: Navigation icons do not navigate anywhere
+  - issue: Share button in top bar is non-functional
+    location: src/components/layout/TopBar.tsx
+    impact: Share button has no action attached
+  - issue: Node deletion via keyboard is disabled
+    location: src/components/canvas/FlowCanvas.tsx
+    impact: deleteKeyCode is set to null, nodes cannot be deleted
