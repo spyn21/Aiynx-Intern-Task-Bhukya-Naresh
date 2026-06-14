@@ -5,7 +5,7 @@
 ## 1️⃣ Document Metadata
 - **Project Name:** Assessment (App Graph Builder)
 - **Date:** 2026-06-13
-- **Prepared by:** TestSprite AI Team
+- **Prepared by:** Bhukya Naresh
 
 ---
 
